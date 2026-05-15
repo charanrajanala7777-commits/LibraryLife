@@ -1,6 +1,7 @@
 -- ============================================================
--- Library Loan Tracker – Final 3NF Schema
--- CS665 Project 3
+-- Library Life Database Schema - CS665 Project 3
+-- Author: Charan Rajanala
+-- Library Life – Final 3NF Schemapyt
 -- Database: SQLite  (also compatible with MySQL/PostgreSQL
 --           with minor type adjustments noted below)
 -- ============================================================
