@@ -1,5 +1,5 @@
 """
-CS665 Project 3 - Library Loan Tracker
+CS665 Project 3 - Library Life
 Full-stack Flask application using SQLite + SQLAlchemy.
 """
 
