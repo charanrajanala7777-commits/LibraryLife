@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Dashboard – Library Loan Tracker{% endblock %}
+{% block title %}Dashboard – LibraryLife{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h2 class="fw-bold"><i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard</h2>
-  <span class="text-muted small">Summary overview</span>
+  <span class="text-muted small">Welcome back! Here's your library summary.</span>
 </div>
 
-<!-- ── KPI cards ── -->
 <div class="row g-3 mb-4">
   <div class="col-6 col-md-3">
     <div class="card kpi-card border-0 shadow-sm h-100">
@@ -55,9 +54,7 @@
   </div>
 </div>
 
-<!-- ── Second row ── -->
 <div class="row g-3 mb-4">
-  <!-- Top borrowed books -->
   <div class="col-md-6">
     <div class="card border-0 shadow-sm h-100">
       <div class="card-header bg-white border-0 fw-semibold">
@@ -85,8 +82,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Avg loan duration + monthly breakdown -->
   <div class="col-md-6">
     <div class="card border-0 shadow-sm h-100">
       <div class="card-header bg-white border-0 fw-semibold">
@@ -115,7 +110,6 @@
   </div>
 </div>
 
-<!-- ── Quick-action buttons ── -->
 <div class="row g-3">
   <div class="col-12">
     <div class="card border-0 shadow-sm">
