@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Books – Library Loan Tracker{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="fw-bold"><i class="bi bi-journal-bookmark me-2 text-success"></i>Book Catalogue</h2>
+  <a href="{{ url_for('add_book') }}" class="btn btn-success">
+    <i class="bi bi-journal-plus me-1"></i>Add Book
+  </a>
+</div>
+
+{% if books %}
+<div class="card border-0 shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Published</th>
+          <th>Status</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td class="text-muted small">{{ book.book_id }}</td>
+          <td class="fw-semibold">{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td><span class="badge bg-secondary">{{ book.genre }}</span></td>
+          <td class="text-muted small">{{ book.published_date if book.published_date else '—' }}</td>
+          <td>
+            {% if book.available %}
+              <span class="badge bg-success">Available</span>
+            {% else %}
+              <span class="badge bg-danger">On Loan</span>
+            {% endif %}
+          </td>
+          <td class="text-end">
+            <a href="{{ url_for('edit_book', book_id=book.book_id) }}"
+               class="btn btn-sm btn-outline-secondary me-1">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <form method="POST"
+                  action="{{ url_for('delete_book', book_id=book.book_id) }}"
+                  class="d-inline"
+                  onsubmit="return confirm('Delete \'{{ book.title }}\'?');">
+              <button type="submit" class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% else %}
+  <div class="alert alert-info">No books found. <a href="{{ url_for('add_book') }}">Add one!</a></div>
+{% endif %}
+{% endblock %}

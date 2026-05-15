@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ user.name }}'s Loans – Library Loan Tracker{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="fw-bold">
+    <i class="bi bi-person-lines-fill me-2 text-primary"></i>{{ user.name }}'s Loan History
+  </h2>
+  <a href="{{ url_for('list_users') }}" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i>Back to Members
+  </a>
+</div>
+
+<p class="text-muted">Email: <strong>{{ user.email }}</strong></p>
+
+{% if loans %}
+<div class="card border-0 shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Loan #</th>
+          <th>Book</th>
+          <th>Loan Date</th>
+          <th>Return Date</th>
+          <th>Duration</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for loan in loans %}
+        <tr>
+          <td class="text-muted small">{{ loan.loan_id }}</td>
+          <td class="fw-semibold">{{ loan.book.title }}</td>
+          <td>{{ loan.loan_date }}</td>
+          <td>{{ loan.return_date if loan.return_date else '—' }}</td>
+          <td>{{ loan.duration_days ~ ' day(s)' if loan.duration_days else '—' }}</td>
+          <td>
+            {% if loan.return_date %}
+              <span class="badge bg-success">Returned</span>
+            {% else %}
+              <span class="badge bg-warning text-dark">Active</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% else %}
+  <div class="alert alert-info">This member has no loans on record.</div>
+{% endif %}
+{% endblock %}
