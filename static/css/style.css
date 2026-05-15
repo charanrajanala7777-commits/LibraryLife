@@ -1,0 +1,70 @@
+/* ── Library Loan Tracker – Custom Styles ── */
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* KPI cards */
+.kpi-card {
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10) !important;
+}
+.kpi-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+}
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #212529;
+}
+.kpi-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+}
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* Table tweaks */
+.table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6c757d;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+}
+
+/* Loan return form inline */
+.return-form input[type="date"] {
+  font-size: 0.82rem;
+}
+
+/* Footer */
+footer {
+  font-size: 0.8rem;
+  color: #adb5bd;
+}
